@@ -1,0 +1,2 @@
+export const glassCard = "bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/20 dark:hover:bg-black/30 hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] dark:hover:shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]";
+export const glassPanel = "bg-white/10 dark:bg-black/20 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-xl rounded-3xl";
