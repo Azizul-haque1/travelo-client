@@ -66,15 +66,15 @@ export default function Navbar() {
           </Link>
 
           {/* Profile Dropdown Mock */}
-          <div className="relative group cursor-pointer ml-2">
-            <div className="w-10 h-10 rounded-full border-2 border-white/50 overflow-hidden">
+          <Link href="/profile" className="relative group cursor-pointer ml-2 block">
+            <div className="w-10 h-10 rounded-full border-2 border-white/50 overflow-hidden hover:border-white transition-colors duration-200">
               <img
                 src="https://i.pravatar.cc/150?img=32"
                 alt="User"
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
+          </Link>
         </div>
 
         <button className="md:hidden p-2 text-slate-800 dark:text-slate-200">
