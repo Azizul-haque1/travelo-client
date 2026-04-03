@@ -28,3 +28,11 @@ export const loginUser = async (data: LoginFormData) => {
 
   return response.json();
 };
+
+export const logoutUser = async () => {
+  const response = await fetch("http://localhost:4000/api/users/logout", {
+    method: "POST",
+    credentials: "include",
+  });
+  return response.json();
+};
