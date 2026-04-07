@@ -4,7 +4,7 @@ import React from "react";
 import { Mail, Lock, User, ArrowRight } from "lucide-react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { RegisterFormData } from "@/types/register.interface";
-import { registerUser } from "@/services/auth.serviece";
+import { registerUser } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 

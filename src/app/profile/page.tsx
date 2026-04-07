@@ -18,12 +18,11 @@ import {
   Bell,
   Map,
 } from "lucide-react";
-import { logoutUser } from "@/services/auth.serviece";
+import { logoutUser } from "@/services/auth.service";
 import toast from "react-hot-toast";
 import LogoutButton from "@/components/buttons/LogoutButton";
 
 export default function ProfilePage() {
- 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-teal-100 to-sky-200 dark:from-slate-950 dark:via-teal-950 dark:to-slate-900 text-slate-900 dark:text-slate-100 font-sans relative overflow-x-hidden selection:bg-teal-500 selection:text-white transition-colors duration-700">
       {/* Dynamic Background Orbs */}
@@ -127,7 +126,6 @@ export default function ProfilePage() {
                     </button>
                   ))}
                   <div className="h-px bg-slate-200/50 dark:bg-slate-700/50" />
-                
 
                   <LogoutButton />
                 </nav>

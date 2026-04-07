@@ -5,3 +5,6 @@ export interface RegisterFormData {
   confirmPassword: string;
   image?:string;
 }
+
+
+

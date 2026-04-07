@@ -1,5 +1,5 @@
 "use client";
-import { logoutUser } from "@/services/auth.serviece";
+import { logoutUser } from "@/services/auth.service";
 import { useAuthStore } from "@/store/auth.store";
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
