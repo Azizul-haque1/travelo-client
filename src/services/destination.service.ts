@@ -12,9 +12,7 @@ interface ApiResponse<T> {
 // Fetch all destinations
 export const getAllDestinations = async (): Promise<IDestination[]> => {
   try {
-    const res = await fetch(`${API_URL}/destinations`, {
-      next: { revalidate: 60 },
-    });
+    const res = await fetch(`${API_URL}/destinations`, { next: { revalidate: 60 } });
     if (!res.ok) throw new Error("Failed to fetch destinations");
 
     const result: ApiResponse<IDestination[]> = await res.json();
@@ -31,9 +29,7 @@ export const getAllDestinations = async (): Promise<IDestination[]> => {
 // Fetch featured destinations
 export const getFeaturedDestinations = async (): Promise<IDestination[]> => {
   try {
-    const res = await fetch(`${API_URL}/destinations/featured`, {
-      next: { revalidate: 60 },
-    });
+    const res = await fetch(`${API_URL}/destinations/featured`, { next: { revalidate: 60 } });
     if (!res.ok) throw new Error("Failed to fetch featured destinations");
 
     const result: ApiResponse<IDestination[]> = await res.json();
@@ -48,13 +44,9 @@ export const getFeaturedDestinations = async (): Promise<IDestination[]> => {
 };
 
 // Fetch single destination by ID
-export const getSingleDestination = async (
-  id: string
-): Promise<IDestination | null> => {
+export const getSingleDestination = async (id: string): Promise<IDestination | null> => {
   try {
-    const res = await fetch(`${API_URL}/destinations/${id}`, {
-      next: { revalidate: 60 },
-    });
+    const res = await fetch(`${API_URL}/destinations/${id}`, { next: { revalidate: 60 } });
     if (!res.ok) throw new Error(`Failed to fetch destination with id: ${id}`);
 
     const result: ApiResponse<IDestination> = await res.json();
