@@ -26,11 +26,18 @@ export default function LoginForm() {
     try {
       const result = await loginUser(data);
       // console.log("login user data ", result);
+      if (!result.success) {
+        toast.error("Login failed");
+      }
       if (result.success) {
         setUser(result.data);
 
-        toast.success("Login successful");
-        router.push("/");
+        const role = result.data?.role;
+
+        toast.success(
+          role === "admin" ? "Admin login successful" : "Login successful"
+        );
+        router.push(role === "admin" ? "/admin" : "/");
       } else {
         toast.error(result.message);
       }

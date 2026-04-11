@@ -1,6 +1,7 @@
 import React from "react";
 import { glassPanel, glassCard } from "@/utils/glass";
 import { Plus, Search, Edit2, Trash2, MapPin, Eye, Star } from "lucide-react";
+import Link from "next/link";
 import { getAllDestinations } from "@/services/destination.service";
 import { IDestination } from "@/types/destination.interface";
 
@@ -20,9 +21,9 @@ export default async function AdminDestinationsPage() {
           <h1 className="text-3xl font-extrabold text-white">Destinations Management</h1>
           <p className="text-slate-400 mt-1 font-medium">Add, edit, or delete travel destinations.</p>
         </div>
-        <button className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 hover:from-teal-400 hover:to-sky-500 text-white font-bold transition-all shadow-md">
+        <Link href="/admin/destinations/create" className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 hover:from-teal-400 hover:to-sky-500 text-white font-bold transition-all shadow-md">
            <Plus size={20} /> Add Destination
-        </button>
+        </Link>
       </header>
 
       <div className={`${glassPanel} p-6 border-white/10 border mb-8 flex items-center justify-between`}>

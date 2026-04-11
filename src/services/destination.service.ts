@@ -1,4 +1,7 @@
-import { IDestination } from "@/types/destination.interface";
+import {
+  CreateDestinationPayload,
+  IDestination,
+} from "@/types/destination.interface";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -12,7 +15,9 @@ interface ApiResponse<T> {
 // Fetch all destinations
 export const getAllDestinations = async (): Promise<IDestination[]> => {
   try {
-    const res = await fetch(`${API_URL}/destinations`, { next: { revalidate: 60 } });
+    const res = await fetch(`${API_URL}/destinations`, {
+      next: { revalidate: 60 },
+    });
     if (!res.ok) throw new Error("Failed to fetch destinations");
 
     const result: ApiResponse<IDestination[]> = await res.json();
@@ -29,7 +34,9 @@ export const getAllDestinations = async (): Promise<IDestination[]> => {
 // Fetch featured destinations
 export const getFeaturedDestinations = async (): Promise<IDestination[]> => {
   try {
-    const res = await fetch(`${API_URL}/destinations/featured`, { next: { revalidate: 60 } });
+    const res = await fetch(`${API_URL}/destinations/featured`, {
+      next: { revalidate: 60 },
+    });
     if (!res.ok) throw new Error("Failed to fetch featured destinations");
 
     const result: ApiResponse<IDestination[]> = await res.json();
@@ -44,9 +51,13 @@ export const getFeaturedDestinations = async (): Promise<IDestination[]> => {
 };
 
 // Fetch single destination by ID
-export const getSingleDestination = async (id: string): Promise<IDestination | null> => {
+export const getSingleDestination = async (
+  id: string
+): Promise<IDestination | null> => {
   try {
-    const res = await fetch(`${API_URL}/destinations/${id}`, { next: { revalidate: 60 } });
+    const res = await fetch(`${API_URL}/destinations/${id}`, {
+      next: { revalidate: 60 },
+    });
     if (!res.ok) throw new Error(`Failed to fetch destination with id: ${id}`);
 
     const result: ApiResponse<IDestination> = await res.json();
@@ -56,6 +67,36 @@ export const getSingleDestination = async (id: string): Promise<IDestination | n
     return result.data || null;
   } catch (error: any) {
     console.error(`getSingleDestination error:`, error.message);
+    return null;
+  }
+};
+
+export const createDestination = async (
+  payload: CreateDestinationPayload
+): Promise<ApiResponse<IDestination> | null> => {
+  try {
+    const res = await fetch(`${API_URL}/destinations/create`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(payload),
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to create destination");
+    }
+
+    const result: ApiResponse<IDestination> = await res.json();
+
+    if (!result.success) {
+      throw new Error(result.message);
+    }
+
+    return result;
+  } catch (error: any) {
+    console.error("createDestination error:", error.message);
     return null;
   }
 };
